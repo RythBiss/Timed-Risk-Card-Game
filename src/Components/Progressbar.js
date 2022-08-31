@@ -6,8 +6,8 @@ export default function Progressbar(props) {
 
   return (
     <div id='progress-bar' >
-        Progressbar
-        <div id='bar-fill'></div>
-        </div>
+      Progress Bar: {props.progress}/100
+      <div id='bar-fill'></div>
+    </div>
   )
 }

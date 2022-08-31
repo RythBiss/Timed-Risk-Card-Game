@@ -5,7 +5,8 @@ import Progressbar from './Components/Progressbar';
 
 function App() {
 
-  const [progress, setProgress] = useState(15);
+  const [gameOver, setGameOver] = useState(true);
+  const [progress, setProgress] = useState(20);
 
   const setProgressClamped = (num) => {
     const newProgress = num + progress;
@@ -13,18 +14,17 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(`progress: ${progress}`)
     if(progress >= 100){
-      console.log('You won!');
+      setGameOver(true);
     }else if(progress <= 0){
-      console.log('You lost...');
+      setGameOver(true);
     }
   }, [progress]);
 
   return (
     <div className="App">
       <Progressbar progress={progress}/>
-      <Deck updateProgress={setProgressClamped}/>
+      <Deck progress={progress} updateProgress={setProgressClamped} gameOver={gameOver} updateGameOver={setGameOver}/>
     </div>
   );
 }
