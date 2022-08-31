@@ -63,19 +63,21 @@ export default function Deck(props) {
     }
   }
 
-  //called when player takes the risk, returns either +10 or - 10
+  //called when player takes the risk, returns the bet as a win or loss.
   const takeRisk = () => {
-    const result = rollResults(getCurrentCard());
+    if(checkGameOver() === false){
+      const result = rollResults(getCurrentCard());
 
-    //make reward higher for higher risks, and more punishing for losing those risks
-    if(result){
-      updateProgress(getCurrentWager());
-    }else{
-      updateProgress(-getCurrentWager());
+      //make reward higher for higher risks, and more punishing for losing those risks
+      if(result){
+        updateProgress(getCurrentWager());
+      }else{
+        updateProgress(-getCurrentWager());
+      }
+
+      draw();
+      resetTime();
     }
-
-    draw();
-    resetTime();
   }
 
   //called when player passes the risk, returns a predictable loss of -5
