@@ -5,7 +5,7 @@ import Progressbar from './Components/Progressbar';
 
 function App() {
 
-  const [progress, setProgress] = useState(10);
+  const [progress, setProgress] = useState(15);
 
   const setProgressClamped = (num) => {
     const newProgress = num + progress;
