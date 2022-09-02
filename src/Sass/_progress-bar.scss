@@ -1,0 +1,21 @@
+@use 'global';
+
+$fill-color: rgb(0, 255, 85);
+
+:root{
+    --progress: 20%;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+
+    margin: global.$standard-margin auto;
+    padding: 0.5rem;
+
+    //7 * 7 so that it can fit 7 digits inside it
+    width: 7 * 10%;
+    height: 10rem;
+    
+    outline: 2px dashed red;
+}

@@ -4,7 +4,7 @@ export default function Timer(props) {
 
   return (
     <h2>
-        Offer expires in {props.time}s (-{props.lossPenalty}).
+        Offer expires in {props.time}s.
     </h2>
   )
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Timer from './Timer';
 
 export default function Deck(props) {
 
@@ -92,25 +91,26 @@ export default function Deck(props) {
     return parseInt(deck[deckPos] * 100);
   }
 
+  //called to easily get the current wager on the card
   const getCurrentWager = () => {
     return ((100 - getCurrentCard()) / 2);
   }
 
+  //checks is the game has ended and calls stopGame if it is true
   const checkGameOver = () => {
     if(props.gameOver === true){
-      console.log('Game Over!');
       stopGame();
-    }else{
-      console.log('Game is still on!');
     }
     return props.gameOver;
   }
 
+  //effectively stops the game
   const stopGame = () => {
     setTime(0);
     clearInterval(timerRef.current);
   }
 
+  //effectively restarts the game
   const resetGame = () => {
     if(checkGameOver() === true){
       props.updateGameOver(false);
@@ -121,10 +121,9 @@ export default function Deck(props) {
       }
     }
   }
-//----------------------------------------------- Look at moving time related functions to the timer.
+
   //called on timer interval, resets at 3 seconds
   const incrementTime = () => {
-    console.log(checkGameOver());
     if(checkGameOver() === false){
       if(time > 1){
           setTime(time - 1); 
@@ -147,6 +146,8 @@ export default function Deck(props) {
 
   //initiate timer on start and restart
   useEffect(() => {   
+    props.updateDisplayTime(time);
+
     if(!checkGameOver()){
       const timer = setInterval(incrementTime, 1000);
       timerRef.current = timer;
@@ -160,12 +161,12 @@ export default function Deck(props) {
   }, [props.gameOver]);
 
   return (
-    <>
-      <h1>Odds are {getCurrentCard()}%.</h1>
-      <h1>Wager is {getCurrentWager()}.</h1>
-      <button onClick={takeRisk}>Accept Risk</button>
-      <Timer onTimeEnd={takeLoss} time={time} lossPenalty={lossPenalty}/>
-      <button onClick={resetGame}>Start Game</button>
-    </>
+    <div className='deck-container'>
+      <button className='card' onClick={takeRisk}>
+        <h1>Odds are {getCurrentCard()}%.</h1>
+        <h1>Wager {getCurrentWager()} points<br/>OR<br/>Lose {lossPenalty}.</h1>
+      </button>
+      <button className='start-button' onClick={resetGame}>Start Game</button>
+    </div>
   )
 }

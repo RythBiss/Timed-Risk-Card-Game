@@ -1,0 +1,24 @@
+@use 'global';
+
+$card-height: 32rem;
+
+.deck-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    outline: 2px dashed blue;
+}
+
+.card{
+    max-width: $card-height * 1.5;
+    width: 75%;
+    height: $card-height;
+    margin: global.$standard-margin;
+}
+
+.start-button{
+    min-width: 16rem;
+    min-height: 4rem;
+    margin: global.$standard-margin;
+}
