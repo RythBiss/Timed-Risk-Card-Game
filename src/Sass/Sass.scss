@@ -1,2 +1,11 @@
 @use 'progress-bar';
 @use 'deck';
+@use 'timer';
+
+.App{
+    outline: 2px dashed orangered;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

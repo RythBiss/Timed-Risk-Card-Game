@@ -8,14 +8,61 @@ $fill-color: rgb(0, 255, 85);
 
 .progress-bar {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 
     margin: global.$standard-margin auto;
-    padding: 0.5rem;
-
-    //7 * 7 so that it can fit 7 digits inside it
-    width: 7 * 10%;
-    height: 10rem;
-    
+    width: 50rem;
     outline: 2px dashed red;
+}
+
+.flip-display{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    outline: 2px dashed orange;
+    > div{
+        margin: 0.2rem;
+        width: 100%;
+        height: 12rem;
+        > div{
+            width: 100%;
+            height: 50%;
+            background-color: red;
+        }
+    }
+
+    > div:hover{
+        animation: flip 0.5s forwards;
+    }
+}
+
+@keyframes flip{
+    100%{
+        transform: rotate3d(1, 0, 0, 180deg);
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .progress-bar {
+        width: 30rem;
+    }
+
+    .flip-display{
+        > div{
+            height: 7rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .progress-bar {
+        width: 15rem;
+    }
+
+    .flip-display{
+        > div{
+            height: 3rem;
+        }
+    }
 }

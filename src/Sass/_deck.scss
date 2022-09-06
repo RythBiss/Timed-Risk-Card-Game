@@ -1,24 +1,31 @@
 @use 'global';
 
-$card-height: 32rem;
+@mixin card-dim($height: 25rem) {
+    width: 50rem;
+    max-width: 90%;
+    height: $height;
+    margin: global.$standard-margin;
+}
 
 .deck-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    outline: 2px dashed blue;
 }
 
 .card{
-    max-width: $card-height * 1.5;
-    width: 75%;
-    height: $card-height;
-    margin: global.$standard-margin;
+    @include card-dim();
 }
 
 .start-button{
-    min-width: 16rem;
-    min-height: 4rem;
-    margin: global.$standard-margin;
+    @include card-dim(5rem);
+}
+
+@media only screen and (max-width: 768px){
+    @mixin card-dim($height: 25rem) {
+        width: 25rem;
+        max-width: 90%;
+        height: $height;
+        margin: global.$standard-margin;
+    }
 }
