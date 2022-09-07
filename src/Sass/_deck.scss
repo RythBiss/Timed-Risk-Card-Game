@@ -21,6 +21,14 @@
     @include card-dim(5rem);
 }
 
+button {
+    background-color: global.$pallet-dark;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    color: global.$pallet-text;
+}
+
 @media only screen and (max-width: 768px){
     @mixin card-dim($height: 25rem) {
         width: 25rem;

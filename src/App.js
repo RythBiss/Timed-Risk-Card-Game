@@ -15,9 +15,13 @@ function App() {
   const [displayTime, setDisplayTimer] = useState(0);
 
   //clamps the progress value between 0 and 100
-  const setProgressClamped = (num) => {
+  const addProgressClamped = (num) => {
     const newProgress = num + progress;
     setProgress(Math.min(Math.max(newProgress, 0), 1000000));
+  }
+
+  const resetProgress = () => {
+    setProgress(20000);
   }
 
   //sets gameOver to true if the progress bar hits either threshold
@@ -30,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <Progressbar progress={progress}/>
-      <GameComponent progress={progress} updateProgress={setProgressClamped} gameOver={gameOver} updateGameOver={setGameOver} updateDisplayTime={setDisplayTimer} />
+      <GameComponent progress={progress} updateProgress={addProgressClamped} resetProgress={resetProgress} gameOver={gameOver} updateGameOver={setGameOver} updateDisplayTime={setDisplayTimer} />
       <Timer time={displayTime}/>
     </div>
   );

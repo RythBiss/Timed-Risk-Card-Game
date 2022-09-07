@@ -117,10 +117,7 @@ export default function Deck(props) {
     if(checkGameOver() === true){
       props.updateGameOver(false);
       resetTime();
-      if(props.progress !==  startBank){
-        updateProgress(-maxBank);
-        updateProgress(startBank);
-      }
+      props.resetProgress();
     }
   }
 

@@ -63,9 +63,23 @@
   margin: 1rem;
 }
 
+button {
+  background-color: rgb(51, 56, 71);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  color: rgb(228, 228, 187);
+}
+
 .timer {
+  color: rgb(228, 228, 187);
   display: flex;
   justify-content: center;
+  background-color: rgb(51, 56, 71);
+}
+
+body {
+  background-color: rgb(29, 32, 41);
 }
 
 .App {

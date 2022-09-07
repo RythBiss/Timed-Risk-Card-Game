@@ -1,6 +1,11 @@
+@use 'global';
 @use 'progress-bar';
 @use 'deck';
 @use 'timer';
+
+body {
+    background-color: rgb(29, 32, 41);
+}
 
 .App{
     display: flex;
