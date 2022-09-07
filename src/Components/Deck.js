@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 
 export default function Deck(props) {
 
-  const lossPenalty = 10;
+  const lossPenalty = 10000;
+  const maxBank = 1000000;
+  const startBank = 20000;
   const updateProgress = props.updateProgress;
 
   const [deck, setDeck] = useState([0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95]);
@@ -93,7 +95,7 @@ export default function Deck(props) {
 
   //called to easily get the current wager on the card
   const getCurrentWager = () => {
-    return ((100 - getCurrentCard()) / 2);
+    return ((maxBank - (10000 * getCurrentCard())) / 2);
   }
 
   //checks is the game has ended and calls stopGame if it is true
@@ -115,9 +117,9 @@ export default function Deck(props) {
     if(checkGameOver() === true){
       props.updateGameOver(false);
       resetTime();
-      if(props.progress !==  20){
-        updateProgress(-100);
-        updateProgress(20);
+      if(props.progress !==  startBank){
+        updateProgress(-maxBank);
+        updateProgress(startBank);
       }
     }
   }

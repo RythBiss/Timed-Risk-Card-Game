@@ -11,18 +11,18 @@ function App() {
   //use spring for motion
 
   const [gameOver, setGameOver] = useState(true);
-  const [progress, setProgress] = useState(20);
+  const [progress, setProgress] = useState(20000);
   const [displayTime, setDisplayTimer] = useState(0);
 
   //clamps the progress value between 0 and 100
   const setProgressClamped = (num) => {
     const newProgress = num + progress;
-    setProgress(Math.min(Math.max(newProgress, 0), 100));
+    setProgress(Math.min(Math.max(newProgress, 0), 1000000));
   }
 
   //sets gameOver to true if the progress bar hits either threshold
   useEffect(() => {
-    if(progress >= 100 || progress <= 0){
+    if(progress >= 1000000 || progress <= 0){
       setGameOver(true);
     }
   }, [progress]);

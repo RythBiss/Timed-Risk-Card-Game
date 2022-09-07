@@ -1,35 +1,22 @@
 import React from 'react'
+import Flipper from './Flipper';
 
 export default function Progressbar(props) {
 
-  document.documentElement.style.setProperty('--progress', `${props.progress}%`);
+  const getDisplayValue = (pos) => {
+    return String(props.progress).padStart(7, '0')[pos];
+  }
 
   return (
       <div className='progress-bar' >
-        Progress Bar: {props.progress}/100
         <div className='flip-display'>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-
+          <Flipper displayValue={getDisplayValue(0)}/>
+          <Flipper displayValue={getDisplayValue(1)}/>
+          <Flipper displayValue={getDisplayValue(2)}/>
+          <Flipper displayValue={getDisplayValue(3)}/>
+          <Flipper displayValue={getDisplayValue(4)}/>
+          <Flipper displayValue={getDisplayValue(5)}/>
+          <Flipper displayValue={getDisplayValue(6)}/>
         </div>
       </div>
   )
