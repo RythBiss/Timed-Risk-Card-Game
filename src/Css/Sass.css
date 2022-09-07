@@ -77,10 +77,15 @@
 }
 
 .App {
-  outline: 2px dashed orangered;
+  outline: 2px dashed green;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
+
+/*
+command to watch Sass files:
+sass --watch Sass:Css
+*/
 
 /*# sourceMappingURL=Sass.css.map */
