@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 
@@ -7,8 +7,7 @@ export default function Flipper(props) {
     const [flip, setFlip] = useState(false);
 
     const spring = useSpring({
-        transform: `perspective(1000px) rotateX(${flip ? -180 : 0}deg)`,
-        config: { mass: 5, tension: 500, friction: 50 }
+        transform: `perspective(1000px) rotateX(${flip ? -180 : 0}deg)`
       })
 
     const handleClick = () => {
@@ -17,13 +16,17 @@ export default function Flipper(props) {
         }
     }
 
-  return (
-    <>
-      <animated.div className='flipper' style={spring} onClick={handleClick}>
-        <div className='flip-front'>{props.displayValue}</div>
-        <div className='flip-back'/>    
-      </animated.div>
-    </>
+  return (  
+      <div className='flip-container' >
+        <div className='flipper next-flip' style={spring} onClick={handleClick}>
+          <div className='flip-top'>&</div>
+          <div className='flip-bot'/>    
+        </div>
+        <animated.div className='flipper' style={spring} onClick={handleClick}>
+          <div className='flip-front'>{props.displayValue}</div>
+          <div className='flip-back'/>    
+        </animated.div>
+      </div>
   )
 }
 /*

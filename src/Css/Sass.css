@@ -1,19 +1,19 @@
-.timer, button, .progress-bar, .flip-front, .flip-back {
+.timer, button, .progress-bar {
   box-shadow: 5px 5px 10px rgb(24, 24, 24);
 }
 
-.flip-front, .flip-back {
-  position: absolute;
-  backface-visibility: hidden;
+.flip-bot, .flip-top, .flip-front, .flip-back {
+  width: 100%;
+  height: 50%;
+  color: rgb(228, 228, 187);
+  text-align: center;
+  font-size: 4rem;
 }
 
 .progress-bar {
   display: flex;
   flex-direction: column;
   margin: 1rem auto;
-  width: 75vw;
-  min-width: 400px;
-  max-width: 700px;
   background-color: rgb(51, 56, 71);
   border: 6px solid silver;
   border-radius: 2px;
@@ -22,27 +22,36 @@
 .flip-display {
   display: flex;
   flex-direction: row;
-  height: 200px;
-}
-.flip-display > div {
-  margin: 4px;
-  width: 100%;
-}
-.flip-display > div > div {
-  width: 100%;
-  height: 50%;
-  background-color: rgb(24, 24, 24);
-  color: rgb(228, 228, 187);
-  font-size: 4rem;
-  text-align: center;
 }
 
 .flipper {
   transform-style: preserve-3d;
+  width: 10vw;
+  max-width: 128px;
+  height: 20vh;
+  margin: 2px;
+}
+
+.next-flip {
+  position: absolute;
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  backface-visibility: hidden;
+  background-image: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
 }
 
 .flip-back {
   transform: rotateX(180deg);
+}
+
+.flip-top {
+  background-image: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
+}
+
+.flip-bot {
+  background-image: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
 }
 
 .deck-container {
@@ -52,8 +61,11 @@
 }
 
 .card {
-  height: 256px;
-  width: 700px;
+  width: 50vw;
+  min-width: 400px;
+  max-width: 900px;
+  height: 40vh;
+  max-width: 700px;
 }
 
 .start-button {
@@ -67,28 +79,6 @@ button {
   color: rgb(228, 228, 187);
 }
 
-@media only screen and (max-width: 768px) {
-  .card {
-    width: 400px;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .card {
-    width: 300px;
-  }
-}
-@media only screen and (max-height: 600px) {
-  .deck-container {
-    flex-direction: row;
-    justify-content: center;
-  }
-  .start-button {
-    margin: 8px;
-  }
-  .card {
-    margin: 8px;
-  }
-}
 .timer {
   display: flex;
   justify-content: center;

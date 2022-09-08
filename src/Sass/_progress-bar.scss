@@ -1,8 +1,13 @@
 @use 'global';
 
+$flip-grad: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
+
 %inner-card{
-    position: absolute;
-    backface-visibility: hidden;
+    width: 100%;
+    height: 50%;
+    color: global.$pallet-text;
+    text-align: center;
+    font-size: 4rem;
 }
 
 .progress-bar {
@@ -13,9 +18,6 @@
 
     margin: global.$standard-margin auto;
     
-    width: 75vw;
-    min-width: 400px;
-    max-width: 700px;
     background-color: global.$pallet-dark;
     border: 6px solid global.$pallet-silver;
     border-radius: 2px;
@@ -24,30 +26,39 @@
 .flip-display{
     display: flex;
     flex-direction: row;
-    height: 200px;
-    > div{
-        margin: 4px;
-        width: 100%;
-        > div{
-            width: 100%;
-            height: 50%;
-            background-color: global.$pallet-xdark;
-            color: global.$pallet-text;
-            font-size: 4rem;
-            text-align: center;
-        }
-    }
 }
 
 .flipper {
     transform-style: preserve-3d;
+    width: 10vw;
+    max-width: 128px;
+    height: 20vh;
+    margin: 2px;
+}
+
+.next-flip{
+    position: absolute;
 }
 
 .flip-front, .flip-back {
-    @extend %stand-shade;
     @extend %inner-card;
+    position: absolute;
+    backface-visibility: hidden;
+    background-image: $flip-grad;
 }
 
+
 .flip-back {
+    @extend %inner-card;
     transform: rotateX(180deg);
+}
+
+.flip-top{
+    @extend %inner-card;
+    background-image: $flip-grad;
+}
+
+.flip-bot{
+    @extend %inner-card;
+    background-image: $flip-grad;
 }
