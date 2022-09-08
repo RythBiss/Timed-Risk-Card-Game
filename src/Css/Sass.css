@@ -1,8 +1,19 @@
+.timer, button, .progress-bar, .flip-front, .flip-back {
+  box-shadow: 5px 5px 10px rgb(24, 24, 24);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
 .progress-bar {
   display: flex;
   flex-direction: column;
   margin: 1rem auto;
-  width: 50rem;
+  width: 75vw;
+  min-width: 400px;
+  max-width: 700px;
   background-color: rgb(51, 56, 71);
   border: 6px solid silver;
   border-radius: 2px;
@@ -11,12 +22,11 @@
 .flip-display {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  height: 200px;
 }
 .flip-display > div {
-  margin: 0.2rem;
+  margin: 4px;
   width: 100%;
-  height: 12rem;
 }
 .flip-display > div > div {
   width: 100%;
@@ -27,55 +37,65 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
-  .progress-bar {
-    width: 30rem;
-  }
-  .flip-display > div {
-    height: 7rem;
-  }
+.flipper {
+  transform-style: preserve-3d;
 }
-@media only screen and (max-width: 500px) {
-  .progress-bar {
-    width: 15rem;
-  }
-  .flip-display > div {
-    height: 3rem;
-  }
+
+.flip-back {
+  transform: rotateX(180deg);
 }
+
 .deck-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
 }
 
 .card {
-  width: 50rem;
-  max-width: 90%;
-  height: 25rem;
-  margin: 1rem;
+  height: 256px;
+  width: 700px;
 }
 
 .start-button {
-  width: 50rem;
-  max-width: 90%;
-  height: 5rem;
-  margin: 1rem;
+  margin: 32px 0 0 0;
 }
 
 button {
   background-color: rgb(51, 56, 71);
   border: none;
   border-radius: 5px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   color: rgb(228, 228, 187);
 }
 
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .card {
+    width: 300px;
+  }
+}
+@media only screen and (max-height: 600px) {
+  .deck-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .start-button {
+    margin: 8px;
+  }
+  .card {
+    margin: 8px;
+  }
+}
 .timer {
-  color: rgb(228, 228, 187);
   display: flex;
   justify-content: center;
+  width: 256px;
   background-color: rgb(51, 56, 71);
+  color: rgb(228, 228, 187);
+  border-radius: 5px;
 }
 
 body {
@@ -86,6 +106,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /*

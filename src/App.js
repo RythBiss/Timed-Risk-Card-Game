@@ -1,7 +1,7 @@
 import './Css/Sass.css';
 import React, { useEffect, useState } from 'react';
 import GameComponent from './Components/Deck';
-import Progressbar from './Components/Progressbar';
+import Progressbar from './Components/FlipperRoll';
 import Timer from './Components/Timer';
 
 function App() {

@@ -1,8 +1,14 @@
 @use 'global';
 
 .timer{
-    color: global.$pallet-text;
+    @extend %stand-shade;
+
     display: flex;
     justify-content: center;
+    
+    width: 256px;
+
     background-color: global.$pallet-dark;
+    color: global.$pallet-text;
+    border-radius: 5px;
 }

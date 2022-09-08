@@ -1,39 +1,53 @@
 @use 'global';
 
-@mixin card-dim($height: 25rem) {
-    width: 50rem;
-    max-width: 90%;
-    height: $height;
-    margin: global.$standard-margin;
-}
 
 .deck-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+
+    margin: 0 auto;
 }
 
-.card{
-    @include card-dim();
+.card {
+    height: 256px;
+    width: 700px;
 }
 
 .start-button{
-    @include card-dim(5rem);
+    margin: 32px 0 0 0;
 }
 
 button {
     background-color: global.$pallet-dark;
     border: none;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
     color: global.$pallet-text;
+    @extend %stand-shade;
 }
 
 @media only screen and (max-width: 768px){
-    @mixin card-dim($height: 25rem) {
-        width: 25rem;
-        max-width: 90%;
-        height: $height;
-        margin: global.$standard-margin;
+    .card {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .card {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-height: 600px){
+    .deck-container{
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .start-button{
+        margin: 8px;
+    }
+
+    .card{
+        margin: 8px;
     }
 }

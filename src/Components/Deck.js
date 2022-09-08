@@ -165,7 +165,11 @@ export default function Deck(props) {
         <h1>Odds are {getCurrentCard()}%.</h1>
         <h1>Wager {getCurrentWager()} points<br/>OR<br/>Lose {lossPenalty}.</h1>
       </button>
-      <button className='start-button' onClick={resetGame}>Start Game</button>
+      <button className='start-button' onClick={resetGame}>
+        <h1>
+          Start Game
+        </h1>
+      </button>
     </div>
   )
 }

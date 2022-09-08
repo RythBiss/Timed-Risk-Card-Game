@@ -1,12 +1,21 @@
 @use 'global';
 
+%inner-card{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
 .progress-bar {
+    @extend %stand-shade;
+
     display: flex;
     flex-direction: column;
 
     margin: global.$standard-margin auto;
-    width: 50rem;
-
+    
+    width: 75vw;
+    min-width: 400px;
+    max-width: 700px;
     background-color: global.$pallet-dark;
     border: 6px solid global.$pallet-silver;
     border-radius: 2px;
@@ -15,11 +24,10 @@
 .flip-display{
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    height: 200px;
     > div{
-        margin: 0.2rem;
+        margin: 4px;
         width: 100%;
-        height: 12rem;
         > div{
             width: 100%;
             height: 50%;
@@ -31,26 +39,15 @@
     }
 }
 
-@media only screen and (max-width: 768px){
-    .progress-bar {
-        width: 30rem;
-    }
-
-    .flip-display{
-        > div{
-            height: 7rem;
-        }
-    }
+.flipper {
+    transform-style: preserve-3d;
 }
 
-@media only screen and (max-width: 500px){
-    .progress-bar {
-        width: 15rem;
-    }
+.flip-front, .flip-back {
+    @extend %stand-shade;
+    @extend %inner-card;
+}
 
-    .flip-display{
-        > div{
-            height: 3rem;
-        }
-    }
+.flip-back {
+    transform: rotateX(180deg);
 }

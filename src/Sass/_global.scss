@@ -3,3 +3,7 @@ $pallet-dark: rgb(51, 56, 71);
 $pallet-xdark: rgb(24, 24, 24);
 $pallet-silver: silver;
 $pallet-text: rgb(228, 228, 187);
+
+%stand-shade{
+    box-shadow: 5px 5px 10px $pallet-xdark;
+}
