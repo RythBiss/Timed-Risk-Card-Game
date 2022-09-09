@@ -1,35 +1,37 @@
-.timer, button, .progress-bar {
+.timer, button, .flip-display {
   box-shadow: 5px 5px 10px rgb(24, 24, 24);
 }
 
-.flip-bot, .flip-top, .flip-front, .flip-back {
+.last-flip, .flip-front, .flip-back {
   width: 100%;
-  height: 50%;
-  color: rgb(228, 228, 187);
+  height: 47%;
+  color: silver;
   text-align: center;
   font-size: 4rem;
+  background-image: linear-gradient(-45deg, rgb(43, 43, 43), rgb(56, 56, 56));
+  outline: 2px solid silver;
 }
 
-.progress-bar {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem auto;
-  background-color: rgb(51, 56, 71);
-  border: 6px solid silver;
-  border-radius: 2px;
+.flipper, .flip-container {
+  width: 100px;
+  height: 200px;
 }
 
 .flip-display {
   display: flex;
   flex-direction: row;
+  border: 4px solid silver;
+  background-color: rgb(51, 56, 71);
+  padding: 8px;
+}
+
+.flip-container {
+  margin: 3px;
 }
 
 .flipper {
   transform-style: preserve-3d;
-  width: 10vw;
-  max-width: 128px;
-  height: 20vh;
-  margin: 2px;
+  position: absolute;
 }
 
 .next-flip {
@@ -39,19 +41,14 @@
 .flip-front, .flip-back {
   position: absolute;
   backface-visibility: hidden;
-  background-image: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
 }
 
 .flip-back {
   transform: rotateX(180deg);
 }
 
-.flip-top {
-  background-image: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
-}
-
-.flip-bot {
-  background-image: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
+.static-flipped-down {
+  transform: rotateX(180deg);
 }
 
 .deck-container {
@@ -89,7 +86,7 @@ button {
 }
 
 body {
-  background-color: rgb(29, 32, 41);
+  background-color: rgb(228, 223, 199);
 }
 
 .App {

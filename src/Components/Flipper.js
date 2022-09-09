@@ -18,9 +18,11 @@ export default function Flipper(props) {
 
   return (  
       <div className='flip-container' >
-        <div className='flipper next-flip' style={spring} onClick={handleClick}>
-          <div className='flip-top'>&</div>
-          <div className='flip-bot'/>    
+        <div className='flipper'  onClick={handleClick}>
+          <div className='flip-front'>&</div>    
+        </div>
+        <div className='flipper static-flipped-down'  onClick={handleClick}>
+          <div className='flip-back'/>    
         </div>
         <animated.div className='flipper' style={spring} onClick={handleClick}>
           <div className='flip-front'>{props.displayValue}</div>

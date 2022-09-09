@@ -1,39 +1,39 @@
 @use 'global';
 
-$flip-grad: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
-
 %inner-card{
     width: 100%;
-    height: 50%;
-    color: global.$pallet-text;
+    height: 47%;
+    color: global.$pallet-silver;
     text-align: center;
     font-size: 4rem;
+    background-image: linear-gradient(-45deg, rgb(43, 43, 43), rgb(56, 56, 56));
+    outline: 2px solid global.$pallet-silver;
 }
 
-.progress-bar {
-    @extend %stand-shade;
-
-    display: flex;
-    flex-direction: column;
-
-    margin: global.$standard-margin auto;
-    
-    background-color: global.$pallet-dark;
-    border: 6px solid global.$pallet-silver;
-    border-radius: 2px;
+%flip-dimensions{
+    $size: 100px;
+    width: $size;
+    height: $size * 2;
 }
 
 .flip-display{
+    @extend %stand-shade;
     display: flex;
     flex-direction: row;
+    border: 4px solid global.$pallet-silver;
+    background-color: global.$pallet-dark;
+    padding: 8px
+}
+
+.flip-container{
+    @extend %flip-dimensions;
+    margin: 3px;
 }
 
 .flipper {
+    @extend %flip-dimensions;
     transform-style: preserve-3d;
-    width: 10vw;
-    max-width: 128px;
-    height: 20vh;
-    margin: 2px;
+    position: absolute;
 }
 
 .next-flip{
@@ -44,7 +44,6 @@ $flip-grad: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
     @extend %inner-card;
     position: absolute;
     backface-visibility: hidden;
-    background-image: $flip-grad;
 }
 
 
@@ -53,12 +52,10 @@ $flip-grad: linear-gradient(-45deg, rgb(39, 39, 39), rgb(71, 71, 71));
     transform: rotateX(180deg);
 }
 
-.flip-top{
+.last-flip{
     @extend %inner-card;
-    background-image: $flip-grad;
 }
 
-.flip-bot{
-    @extend %inner-card;
-    background-image: $flip-grad;
+.static-flipped-down{
+    transform: rotateX(180deg);
 }

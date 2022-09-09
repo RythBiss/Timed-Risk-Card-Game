@@ -8,7 +8,6 @@ export default function Progressbar(props) {
   }
 
   return (
-      <div className='progress-bar' >
         <div className='flip-display'>
           <Flipper displayValue={getDisplayValue(0)}/>
           <Flipper displayValue={getDisplayValue(1)}/>
@@ -18,6 +17,5 @@ export default function Progressbar(props) {
           <Flipper displayValue={getDisplayValue(5)}/>
           <Flipper displayValue={getDisplayValue(6)}/>
         </div>
-      </div>
   )
 }
