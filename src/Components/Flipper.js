@@ -1,31 +1,54 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 
 export default function Flipper(props) {
 
-    const [flip, setFlip] = useState(false);
+  const [flip, setFlip] = useState(false);
+  const [oldDisplay, setOld] = useState(0);
+  const [newDisplay, setNew] = useState(0);
+  const [resetAnim, setResetAnim] = useState(false);
+  const [carryNum, setNum] = useState(0);
 
-    const spring = useSpring({
-        transform: `perspective(1000px) rotateX(${flip ? -180 : 0}deg)`
-      })
+  const spring = useSpring({
+    transform: `perspective(1000px) rotateX(${flip ? 0 : -180}deg)`,
+    onRest: {
+      transform: () => {reloadFlipper()}
+    },
+    // immediate: resetAnim
+  })
 
-    const handleClick = () => {
-        if(flip === false){
-            setFlip(!flip);
-        }
+  const reloadFlipper = () => {
+    console.log('come down!')
+    setResetAnim(false);
+    setFlip(false);
+
+    setOld(newDisplay);
+    setNum(oldDisplay);
+  }
+
+  useEffect(() => {
+    if(props.displayValue !== oldDisplay){
+      console.log('come up!');
+
+      setNew(props.displayValue);
+
+      setResetAnim(true);
+      setFlip(true);
     }
+  }, [props.displayValue]);
+  
 
   return (  
       <div className='flip-container' >
-        <div className='flipper'  onClick={handleClick}>
-          <div className='flip-front'>&</div>    
+        <div className='flipper'>
+          <div className='flip-front'>{props.displayValue}</div>    
         </div>
-        <div className='flipper static-flipped-down'  onClick={handleClick}>
+        <div className='flipper static-flipped-down'>
           <div className='flip-back'/>    
         </div>
-        <animated.div className='flipper' style={spring} onClick={handleClick}>
-          <div className='flip-front'>{props.displayValue}</div>
+        <animated.div className='flipper' style={spring}>
+          <div className='flip-front'>{oldDisplay}</div>
           <div className='flip-back'/>    
         </animated.div>
       </div>
