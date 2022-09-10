@@ -4,7 +4,6 @@ export default function Deck(props) {
 
   const lossPenalty = 10000;
   const maxBank = 1000000;
-  const startBank = 20000;
   const updateProgress = props.updateProgress;
 
   const [deck, setDeck] = useState([0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95]);
@@ -53,12 +52,9 @@ export default function Deck(props) {
   const rollResults = (success) => {
     const roll = (100 * Math.random());
 
-    //simplify this, the else is not needed
-    if(roll < success){
-      return true;
-    }else{
-      return false;
-    }
+    if(roll < success) return true;
+
+    return false;
   }
 
   //called when player takes the risk, returns the bet as a win or loss.
@@ -66,7 +62,7 @@ export default function Deck(props) {
     if(checkGameOver() === false){
       const result = rollResults(getCurrentCard());
 
-      //make reward higher for higher risks, and more punishing for losing those risks
+      //decides if the wager is gained or lost
       if(result){
         updateProgress(getCurrentWager());
       }else{
@@ -97,9 +93,7 @@ export default function Deck(props) {
 
   //checks is the game has ended and calls stopGame if it is true
   const checkGameOver = () => {
-    if(props.gameOver === true){
-      stopGame();
-    }
+    if(props.gameOver === true) stopGame();
     return props.gameOver;
   }
 

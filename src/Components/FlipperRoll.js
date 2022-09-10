@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Flipper from './Flipper';
 
 export default function Progressbar(props) {
