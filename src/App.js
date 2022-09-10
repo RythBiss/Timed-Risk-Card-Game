@@ -30,6 +30,7 @@ function App() {
       setGameOver(true);
     }
   }, [progress]);
+  
 
   return (
     <div className="App">

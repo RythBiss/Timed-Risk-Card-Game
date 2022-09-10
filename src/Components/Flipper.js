@@ -7,7 +7,7 @@ export default function Flipper(props) {
   const [flip, setFlip] = useState(false);
   const [oldDisplay, setOld] = useState(0);
   const [newDisplay, setNew] = useState(0);
-  const [resetAnim, setResetAnim] = useState(false);
+  const [showFlip, setShowFlip] = useState(false);
   const [carryNum, setNum] = useState(0);
 
   const spring = useSpring({
@@ -15,34 +15,29 @@ export default function Flipper(props) {
     onRest: {
       transform: () => {reloadFlipper()}
     },
-    // immediate: resetAnim
+    immediate: showFlip
   })
 
   const reloadFlipper = () => {
-    console.log('come down!')
-    setResetAnim(false);
+    setShowFlip(false);
     setFlip(false);
 
-    setOld(newDisplay);
-    setNum(oldDisplay);
+    setNum(props.displayValue);
+    setNew(props.displayValue);
   }
 
   useEffect(() => {
-    if(props.displayValue !== oldDisplay){
-      console.log('come up!');
 
-      setNew(props.displayValue);
-
-      setResetAnim(true);
+      setShowFlip(true);
       setFlip(true);
-    }
+      setOld(carryNum);
   }, [props.displayValue]);
   
 
   return (  
       <div className='flip-container' >
         <div className='flipper'>
-          <div className='flip-front'>{props.displayValue}</div>    
+          <div className='flip-front'>{newDisplay}</div>    
         </div>
         <div className='flipper static-flipped-down'>
           <div className='flip-back'/>    
@@ -57,7 +52,6 @@ export default function Flipper(props) {
 /*
 to-do:
     ✓ 1) when flipped down, number on the front is not rendered.
-    2) a second card is loaded behind the first with the next number to be rendered.
-    3) look into spring transitions: animate the mounting and unmounting of each new number.
-    4) when a number is updated, the flipper should quickly cycle through each number in between the old and new number.
+    ✓ 2) a second card is loaded behind the first with the next number to be rendered.
+    3) when a number is updated, the flipper should quickly cycle through each number in between the old and new number.
 */

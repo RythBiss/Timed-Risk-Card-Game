@@ -53,13 +53,10 @@ export default function Deck(props) {
   const rollResults = (success) => {
     const roll = (100 * Math.random());
 
-    console.log(`Success if ${roll} is lower than ${success}`)
-
+    //simplify this, the else is not needed
     if(roll < success){
-      console.log('Success');
       return true;
     }else{
-      console.log('Failed...');
       return false;
     }
   }
