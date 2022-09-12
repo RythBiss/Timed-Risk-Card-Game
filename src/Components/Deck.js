@@ -18,13 +18,13 @@ export default function Deck(props) {
       setDeckPos(deckPos + 1);
     }else{
       shuffleDeckHook();
-      setDeckPos(0);
     }
   }
 
   //called when its time to shuffle instead of calling shuffle directly
   const shuffleDeckHook = () => {
     setDeck(shuffle([...deck]));
+    setDeckPos(0);
   }
 
   //shuffle the passed array and return it
@@ -109,6 +109,7 @@ export default function Deck(props) {
       props.updateGameOver(false);
       resetTime();
       props.resetProgress();
+      shuffleDeckHook();
     }
   }
 
@@ -152,15 +153,29 @@ export default function Deck(props) {
 
   return (
     <div className='deck-container'>
-      <button className='card' onClick={takeRisk}>
-        <h1>Odds are {getCurrentCard()}%.</h1>
-        <h1>Wager {getCurrentWager()} points<br/>OR<br/>Lose {lossPenalty}.</h1>
-      </button>
+      <div className='proposal'>
+        <button className='card'>
+          <h1>+${getCurrentWager()/1000}k</h1>
+          <h1>{getCurrentCard()}%</h1>
+          <h1>-${getCurrentWager()/1000}k</h1>
+        </button>
+        <p className='loss-penalty'>
+          or -${lossPenalty/1000}k
+        </p>
+      </div>
+      {
+      props.gameOver ? 
+
       <button className='start-button' onClick={resetGame}>
-        <h1>
-          Start Game
-        </h1>
+        <h1>START</h1>
       </button>
+
+      :
+      
+      <button className='start-button' onClick={takeRisk}>
+        <h1>INVEST</h1>
+      </button>
+      }
     </div>
   )
 }

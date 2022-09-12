@@ -3,8 +3,8 @@ import React from 'react'
 export default function Timer(props) {
 
   return (
-    <h2 className='timer'>
-        Offer expires in {props.time}s.
-    </h2>
+    <div className='timer'>
+        <h2 className='timer-num'>{props.time}</h2>
+    </div>
   )
 }

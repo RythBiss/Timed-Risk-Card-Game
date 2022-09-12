@@ -1,14 +1,49 @@
 @use 'global';
 
+$size: 150px;
+
 .timer{
     @extend %stand-shade;
 
+    position: absolute;
+    top: -$size/2;
+    left: -$size/2;
+    width: $size;
+    height: $size;
+    margin: 0;
+
+    background-color: global.$pallet-yellow;
+    color: global.$pallet-bg;
+
+    border: 4px solid global.$pallet-silver;
+    border-radius: 100%;
+}
+
+.timer-num{
     display: flex;
     justify-content: center;
-    
-    width: 256px;
+}
 
-    background-color: global.$pallet-dark;
-    color: global.$pallet-text;
-    border-radius: 5px;
+@media only screen and (max-height: 1000px){
+    .timer{
+        top: -$size/4;
+        left: -$size/4;
+        width: $size/2;
+        height: $size/2;
+    }
+}
+
+@media only screen and (max-height: 850px){
+    .timer{
+        top: 0;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .timer{
+        top: 0;
+        left: 0;
+        width: $size/2;
+        height: $size/2;
+    }
 }

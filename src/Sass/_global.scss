@@ -1,9 +1,20 @@
 $standard-margin: 1rem;
-$pallet-dark: rgb(51, 56, 71);
-$pallet-xdark: rgb(24, 24, 24);
-$pallet-silver: silver;
-$pallet-text: rgb(228, 228, 187);
+$pallet-bg: #2c2a2c;
+$pallet-dark: #474448;
+$pallet-light: #787479;
+$pallet-silver: #E2DCDE;
+$pallet-red: #FF4242;
+$pallet-green: #2DD881;
+$pallet-yellow: #F1D302;
+$pallet-blue: #3172ff;
 
 %stand-shade{
-    box-shadow: 5px 5px 10px $pallet-xdark;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+
+%stand-box{
+    background-color: $pallet-light;
+    border: 2px solid $pallet-silver;
+    border-radius: 5px;
+    color: $pallet-silver;
 }

@@ -3,12 +3,9 @@ import React, { useEffect, useState } from 'react';
 import GameComponent from './Components/Deck';
 import Progressbar from './Components/FlipperRoll';
 import Timer from './Components/Timer';
+import PageCap from './Components/PageCaps';
 
 function App() {
-
-  //https://codesandbox.io/s/spring-flip-card-g30zr?file=/src/App.tsx
-  //card flip using spring
-  //use spring for motion
 
   const [gameOver, setGameOver] = useState(true);
   const [progress, setProgress] = useState(20000);
@@ -34,9 +31,13 @@ function App() {
 
   return (
     <div className="App">
+      <PageCap content={'Deck Market'}/>
       <Progressbar progress={progress}/>
-      <GameComponent progress={progress} updateProgress={addProgressClamped} resetProgress={resetProgress} gameOver={gameOver} updateGameOver={setGameOver} updateDisplayTime={setDisplayTimer} />
-      <Timer time={displayTime}/>
+      <div className='controls'>
+        <GameComponent progress={progress} updateProgress={addProgressClamped} resetProgress={resetProgress} gameOver={gameOver} updateGameOver={setGameOver} updateDisplayTime={setDisplayTimer} />
+        <Timer time={displayTime}/>
+      </div>
+      <PageCap/>
     </div>
   );
 }

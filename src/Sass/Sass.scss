@@ -3,17 +3,54 @@
 @use 'deck';
 @use 'timer';
 
+*{
+    font-family: 'Space Mono', monospace;
+    text-shadow: 2px 2px global.$pallet-bg;
+}
+
 body {
-    background-color: rgb(228, 223, 199);
+    background-color: global.$pallet-bg;
 }
 
 .App{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    
+    height: 100vh;
+}
 
-    min-height: 100vh;
+.controls{
+    position: relative;
+
+    margin: 4px;
+
+    @extend %stand-box;
+    @extend %stand-shade;
+}
+
+.caps{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 64px;
+    
+    background-color: global.$pallet-dark;
+
+    @extend %stand-shade;
+}
+
+.cap-text{
+    color: global.$pallet-silver;
+    font-style: italic;
+    text-align: center;
+
+    margin: 8px;
+    padding: 8px 128px;
+
+    @extend %stand-box;
 }
 
 /*

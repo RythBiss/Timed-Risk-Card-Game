@@ -13,13 +13,13 @@ export default function Flipper(props) {
   const spring = useSpring({
     transform: `perspective(5000px) rotateX(${flip ? 0 : -180}deg)`,
     onRest: {
-      transform: () => {reloadFlipper()}
+      transform: () => {animateFlipper()}
     },
     immediate: skipFlip,
     config: {mass: 3, tension: 250}
   })
 
-  const reloadFlipper = () => {
+  const animateFlipper = () => {
     console.log('flip')
     setSkipFlip(false);
     setFlip(false);

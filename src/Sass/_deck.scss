@@ -1,29 +1,83 @@
 @use 'global';
 
+$size: 200px;
+
+%card-width{
+    width: 25vw;
+    min-width: 400px;
+    max-width: 900px;
+}
 
 .deck-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     margin: 0 auto;
 }
 
 .card {
-    width: 50vw;
-    min-width: 400px;
-    max-width: 900px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-    height: 40vh;
-    max-width: 700px;
+    background-image: linear-gradient(115deg, global.$pallet-green 49.5%, black 50%, global.$pallet-red 0);
+
+    @extend %card-width;
+
+    height: 25vh;
+    min-height: 200px;
+    border: 2px solid global.$pallet-silver;
 }
 
 .start-button{
-    margin: 32px 0 0 0;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: global.$pallet-blue;
+    border: 2px solid global.$pallet-silver;
+}
+
+.proposal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loss-penalty{
+    @extend %stand-box;
+    @extend %stand-shade;
+    @extend %card-width;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: global.$pallet-red;
+
+    font-size: 1.5rem;
 }
 
 button {
     background-color: global.$pallet-dark;
     border: none;
     border-radius: 5px;
-    color: global.$pallet-text;
+    color: global.$pallet-silver;
+    margin: 16px;
     @extend %stand-shade;
+    > h1{
+        font-size: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .deck-container{
+        flex-direction: column;
+    }
+
+    .card{
+        flex-direction: column;
+        background-image: linear-gradient(165deg, global.$pallet-green 49.5%, black 50%, global.$pallet-red 0);
+        > h1{
+            margin: 8px;
+        }
+    }
 }
