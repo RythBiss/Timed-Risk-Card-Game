@@ -20,13 +20,13 @@ $size: 200px;
     justify-content: space-around;
     align-items: center;
 
-    background-image: linear-gradient(115deg, global.$pallet-green 49.5%, black 50%, global.$pallet-red 0);
+    background-image:linear-gradient(-75deg, global.$pallet-red 49.7%, global.$pallet-bg 50%, global.$pallet-green 50.3%);
 
     @extend %card-width;
 
     height: 25vh;
     min-height: 200px;
-    border: 2px solid global.$pallet-silver;
+    border-radius: 2rem;
 }
 
 .start-button{
@@ -34,7 +34,10 @@ $size: 200px;
     height: $size;
     border-radius: 50%;
     background-color: global.$pallet-blue;
-    border: 2px solid global.$pallet-silver;
+}
+
+.start-button:hover{
+    background-color: global.$pallet-blue-hov;
 }
 
 .proposal{

@@ -1,11 +1,10 @@
-.controls, .caps, .timer, .loss-penalty, button, .flip-display {
+.controls, .caps, .loss-penalty, button, .flip-display {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
 }
 
-.controls, .cap-text, .loss-penalty, .flip-display, .flip-front, .flip-back, .last-flip {
+.instruct, .controls, .loss-penalty, .flip-display, .flip-front, .flip-back, .last-flip {
   background-color: #787479;
-  border: 2px solid #E2DCDE;
-  border-radius: 5px;
+  border-radius: 2rem;
   color: #E2DCDE;
 }
 
@@ -19,14 +18,23 @@
 }
 
 .flipper, .flip-container {
-  width: 100px;
-  height: 200px;
+  width: 75px;
+  height: 206.25px;
 }
 
 .flip-display {
+  border: none;
   display: flex;
   flex-direction: row;
   padding: 8px;
+  font-size: 4.4rem;
+}
+.flip-display > p {
+  margin: 0;
+  height: 50%;
+}
+.flip-display > .comma {
+  margin-top: 24px;
 }
 
 .flip-container {
@@ -57,20 +65,17 @@
 
 @media only screen and (max-width: 768px) {
   .flip-container, .flipper {
-    width: 65px;
-    height: 130px;
+    width: 45px;
+    height: 123.75px;
   }
   .flip-front, .flip-back, .last-flip {
-    font-size: 2.6rem;
+    font-size: 2.75rem;
   }
-}
-@media only screen and (max-width: 500px) {
-  .flip-container, .flipper {
-    width: 50px;
-    height: 100px;
+  .flip-display {
+    font-size: 2.8rem;
   }
-  .flip-front, .flip-back, .last-flip {
-    font-size: 2rem;
+  .flip-display > .comma {
+    margin-top: 14px;
   }
 }
 .loss-penalty, .card {
@@ -90,10 +95,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(115deg, #2DD881 49.5%, black 50%, #FF4242 0);
+  background-image: linear-gradient(-75deg, #FF4242 49.7%, #2c2a2c 50%, #2DD881 50.3%);
   height: 25vh;
   min-height: 200px;
-  border: 2px solid #E2DCDE;
+  border-radius: 2rem;
 }
 
 .start-button {
@@ -101,7 +106,10 @@
   height: 200px;
   border-radius: 50%;
   background-color: #3172ff;
-  border: 2px solid #E2DCDE;
+}
+
+.start-button:hover {
+  background-color: #4680ff;
 }
 
 .proposal {
@@ -142,20 +150,24 @@ button > h1 {
 }
 .timer {
   position: absolute;
-  top: -75px;
-  left: -75px;
+  top: -105px;
+  left: -30px;
   width: 150px;
   height: 150px;
   margin: 0;
-  background-color: #F1D302;
-  color: #2c2a2c;
-  border: 4px solid #E2DCDE;
-  border-radius: 100%;
 }
 
-.timer-num {
-  display: flex;
-  justify-content: center;
+.timer-dial {
+  transform: rotateZ(270deg);
+  width: 100%;
+  height: 100%;
+}
+
+.dial {
+  stroke-dasharray: 113px;
+  stroke-width: 30px;
+  stroke: #F1D302;
+  fill: none;
 }
 
 @media only screen and (max-height: 1000px) {
@@ -181,7 +193,6 @@ button > h1 {
 }
 * {
   font-family: "Space Mono", monospace;
-  text-shadow: 2px 2px #2c2a2c;
 }
 
 body {
@@ -196,9 +207,18 @@ body {
   height: 100vh;
 }
 
+.instruct {
+  padding: 8px;
+  margin: 0 24px;
+  max-width: 300px;
+}
+
 .controls {
   position: relative;
   margin: 4px;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border: none;
 }
 
 .caps {
@@ -206,13 +226,15 @@ body {
   justify-content: center;
   width: 100%;
   min-height: 64px;
-  background-color: #474448;
+  background-color: #F1D302;
 }
 
 .cap-text {
-  color: #E2DCDE;
+  color: #474448;
   font-style: italic;
   text-align: center;
+  border: 2px solid #474448;
+  border-radius: 2rem;
   margin: 8px;
   padding: 8px 128px;
 }

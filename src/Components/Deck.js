@@ -6,9 +6,10 @@ export default function Deck(props) {
   const maxBank = 1000000;
   const updateProgress = props.updateProgress;
 
-  const [deck, setDeck] = useState([0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95]);
+  const [deck, setDeck] = useState([0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85]);
   const [deckPos, setDeckPos] = useState(0);
   const [time, setTime] = useState(3);
+  
 
   const timerRef = useRef(null);
 
@@ -64,9 +65,9 @@ export default function Deck(props) {
 
       //decides if the wager is gained or lost
       if(result){
-        updateProgress(getCurrentWager());
+        updateProgress(getCurrentWager() + getRandomVolatility());
       }else{
-        updateProgress(-getCurrentWager());
+        updateProgress(-getCurrentWager() + getRandomVolatility());
       }
 
       draw();
@@ -76,9 +77,13 @@ export default function Deck(props) {
 
   //called when player passes the risk, returns a predictable loss of -5
   const takeLoss = () => {
-    updateProgress(-lossPenalty);
+    updateProgress(-lossPenalty + getRandomVolatility());
     draw();
     resetTime();
+  }
+
+  const getRandomVolatility = () => {
+    return(Math.random() * (999 - (-999)) + (-999))
   }
 
   //called to easily get the current card's success rate
@@ -115,8 +120,9 @@ export default function Deck(props) {
 
   //called on timer interval, resets at 3 seconds
   const incrementTime = () => {
+
     if(checkGameOver() === false){
-      if(time > 1){
+      if(time > 0){
           setTime(time - 1); 
       }else{
           takeLoss();
@@ -127,7 +133,7 @@ export default function Deck(props) {
 
   //quickly reset timer
   const resetTime = () => {
-    setTime(3);
+    setTime(2);
   }
 
   //shuffles deck on start

@@ -5,7 +5,6 @@
 
 *{
     font-family: 'Space Mono', monospace;
-    text-shadow: 2px 2px global.$pallet-bg;
 }
 
 body {
@@ -21,13 +20,27 @@ body {
     height: 100vh;
 }
 
+.instruct{
+    @extend %stand-box;
+
+    padding: 8px;
+    margin: 0 24px;
+
+    max-width: 300px;
+}
+
 .controls{
     position: relative;
 
     margin: 4px;
 
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
     @extend %stand-box;
     @extend %stand-shade;
+
+    border: none;
 }
 
 .caps{
@@ -37,20 +50,21 @@ body {
     width: 100%;
     min-height: 64px;
     
-    background-color: global.$pallet-dark;
+    background-color: global.$pallet-yellow;
 
     @extend %stand-shade;
 }
 
 .cap-text{
-    color: global.$pallet-silver;
+    color: global.$pallet-dark;
     font-style: italic;
     text-align: center;
 
+    border: 2px solid global.$pallet-dark;
+    border-radius: 2rem;
+
     margin: 8px;
     padding: 8px 128px;
-
-    @extend %stand-box;
 }
 
 /*

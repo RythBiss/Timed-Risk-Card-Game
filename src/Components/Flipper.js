@@ -20,7 +20,6 @@ export default function Flipper(props) {
   })
 
   const animateFlipper = () => {
-    console.log('flip')
     setSkipFlip(false);
     setFlip(false);
     setCarryOverNumber(props.displayValue);

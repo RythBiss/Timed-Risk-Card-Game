@@ -3,25 +3,24 @@
 $size: 150px;
 
 .timer{
-    @extend %stand-shade;
-
     position: absolute;
-    top: -$size/2;
-    left: -$size/2;
+    top: -105px;
+    left: -30px;
     width: $size;
     height: $size;
     margin: 0;
-
-    background-color: global.$pallet-yellow;
-    color: global.$pallet-bg;
-
-    border: 4px solid global.$pallet-silver;
-    border-radius: 100%;
+}
+.timer-dial{
+    transform: rotateZ(270deg);
+    width: 100%;
+    height: 100%;
 }
 
-.timer-num{
-    display: flex;
-    justify-content: center;
+.dial{
+    stroke-dasharray: 113px;
+    stroke-width: 30px;
+    stroke: global.$pallet-yellow;
+    fill: none;
 }
 
 @media only screen and (max-height: 1000px){

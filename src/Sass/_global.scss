@@ -7,6 +7,7 @@ $pallet-red: #FF4242;
 $pallet-green: #2DD881;
 $pallet-yellow: #F1D302;
 $pallet-blue: #3172ff;
+$pallet-blue-hov: #4680ff;
 
 %stand-shade{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
@@ -14,7 +15,6 @@ $pallet-blue: #3172ff;
 
 %stand-box{
     background-color: $pallet-light;
-    border: 2px solid $pallet-silver;
-    border-radius: 5px;
+    border-radius: 2rem;
     color: $pallet-silver;
 }
