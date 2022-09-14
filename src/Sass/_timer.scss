@@ -14,6 +14,7 @@ $size: 150px;
     transform: rotateZ(270deg);
     width: 100%;
     height: 100%;
+    filter: drop-shadow(0px 0px 2.5px rgba(0, 0, 0, 0.75));
 }
 
 .dial{
@@ -23,26 +24,11 @@ $size: 150px;
     fill: none;
 }
 
-@media only screen and (max-height: 1000px){
-    .timer{
-        top: -$size/4;
-        left: -$size/4;
-        width: $size/2;
-        height: $size/2;
-    }
-}
-
-@media only screen and (max-height: 850px){
-    .timer{
-        top: 0;
-    }
-}
-
 @media only screen and (max-width: 768px){
     .timer{
-        top: 0;
-        left: 0;
-        width: $size/2;
-        height: $size/2;
+        top: -50px;
+        left: -25px;
+        width: calc($size/2);
+        height: calc($size/2);
     }
 }

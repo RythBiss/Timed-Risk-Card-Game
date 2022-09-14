@@ -3,37 +3,44 @@
 $size: 200px;
 
 %card-width{
-    width: 25vw;
     min-width: 400px;
-    max-width: 900px;
 }
 
 .deck-container{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 0 auto;
+    align-items: stretch;
+    justify-content:space-around;
 }
 
 .card {
+    @extend %stand-shade;
+    @extend %stand-box;
+    @extend %card-width;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     background-image:linear-gradient(-75deg, global.$pallet-red 49.7%, global.$pallet-bg 50%, global.$pallet-green 50.3%);
 
-    @extend %card-width;
-
     height: 25vh;
     min-height: 200px;
-    border-radius: 2rem;
+
+    background-color: global.$pallet-dark;
+
+    margin: 16px;
+    padding: 1rem;
+
+    > h1{
+        font-size: 2.5rem;
+        text-shadow: 0px 0px 5px black;
+    }
 }
 
 .start-button{
-    width: $size;
-    height: $size;
-    border-radius: 50%;
     background-color: global.$pallet-blue;
+    border: none;
 }
 
 .start-button:hover{
@@ -57,17 +64,23 @@ $size: 200px;
     background-color: global.$pallet-red;
 
     font-size: 1.5rem;
+    text-shadow: 0px 0px 5px black;
 }
 
 button {
-    background-color: global.$pallet-dark;
-    border: none;
-    border-radius: 5px;
-    color: global.$pallet-silver;
-    margin: 16px;
     @extend %stand-shade;
+    @extend %stand-box;
+
+    background-color: global.$pallet-dark;
+
+    color: global.$pallet-silver;
+
+    margin: 16px;
+    padding: 1rem;
+
     > h1{
         font-size: 2.5rem;
+        text-shadow: 0px 0px 5px black;
     }
 }
 

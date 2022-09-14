@@ -12,7 +12,7 @@ export default function Header(props) {
 
       :
       
-      <></>
+      <h1 className='cap-empty'></h1>
       }
     </div>
   )

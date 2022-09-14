@@ -1,8 +1,8 @@
-.controls, .caps, .loss-penalty, button, .flip-display {
+.controls, .caps, .card, .loss-penalty, button, .flip-display, .flip-front, .flip-back {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
 }
 
-.instruct, .controls, .loss-penalty, .flip-display, .flip-front, .flip-back, .last-flip {
+.controls, .card, .loss-penalty, button, .flip-display, .flip-front, .flip-back, .last-flip {
   background-color: #787479;
   border-radius: 2rem;
   color: #E2DCDE;
@@ -14,7 +14,7 @@
   color: #E2DCDE;
   text-align: center;
   font-size: 4rem;
-  background-image: linear-gradient(-45deg, rgb(43, 43, 43), rgb(56, 56, 56));
+  background-image: linear-gradient(-45deg, rgb(43, 43, 43), rgb(60, 60, 60));
 }
 
 .flipper, .flip-container {
@@ -32,6 +32,7 @@
 .flip-display > p {
   margin: 0;
   height: 50%;
+  text-shadow: 0px 0px 5px black;
 }
 .flip-display > .comma {
   margin-top: 24px;
@@ -79,16 +80,14 @@
   }
 }
 .loss-penalty, .card {
-  width: 25vw;
   min-width: 400px;
-  max-width: 900px;
 }
 
 .deck-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin: 0 auto;
+  align-items: stretch;
+  justify-content: space-around;
 }
 
 .card {
@@ -98,14 +97,18 @@
   background-image: linear-gradient(-75deg, #FF4242 49.7%, #2c2a2c 50%, #2DD881 50.3%);
   height: 25vh;
   min-height: 200px;
-  border-radius: 2rem;
+  background-color: rgba(71, 68, 72, 0.9333333333);
+  margin: 16px;
+  padding: 1rem;
+}
+.card > h1 {
+  font-size: 2.5rem;
+  text-shadow: 0px 0px 5px black;
 }
 
 .start-button {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
   background-color: #3172ff;
+  border: none;
 }
 
 .start-button:hover {
@@ -123,17 +126,18 @@
   justify-content: center;
   background-color: #FF4242;
   font-size: 1.5rem;
+  text-shadow: 0px 0px 5px black;
 }
 
 button {
-  background-color: #474448;
-  border: none;
-  border-radius: 5px;
+  background-color: rgba(71, 68, 72, 0.9333333333);
   color: #E2DCDE;
   margin: 16px;
+  padding: 1rem;
 }
 button > h1 {
   font-size: 2.5rem;
+  text-shadow: 0px 0px 5px black;
 }
 
 @media only screen and (max-width: 768px) {
@@ -161,6 +165,7 @@ button > h1 {
   transform: rotateZ(270deg);
   width: 100%;
   height: 100%;
+  filter: drop-shadow(0px 0px 2.5px rgba(0, 0, 0, 0.75));
 }
 
 .dial {
@@ -170,23 +175,10 @@ button > h1 {
   fill: none;
 }
 
-@media only screen and (max-height: 1000px) {
-  .timer {
-    top: -37.5px;
-    left: -37.5px;
-    width: 75px;
-    height: 75px;
-  }
-}
-@media only screen and (max-height: 850px) {
-  .timer {
-    top: 0;
-  }
-}
 @media only screen and (max-width: 768px) {
   .timer {
-    top: 0;
-    left: 0;
+    top: -50px;
+    left: -25px;
     width: 75px;
     height: 75px;
   }
@@ -204,20 +196,25 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
 }
 
 .instruct {
-  padding: 8px;
-  margin: 0 24px;
-  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #E2DCDE;
+  text-align: center;
+  height: 50vh;
+  min-height: 450px;
+  margin: 32px;
+}
+.instruct > p {
+  width: 50%;
 }
 
 .controls {
   position: relative;
-  margin: 4px;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+  margin: 0 0 64px 0;
   border: none;
 }
 
@@ -225,18 +222,24 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  min-height: 64px;
+  min-height: fit-content;
   background-color: #F1D302;
 }
 
 .cap-text {
-  color: #474448;
+  color: rgba(71, 68, 72, 0.9333333333);
   font-style: italic;
   text-align: center;
-  border: 2px solid #474448;
+  border: 2px solid rgba(71, 68, 72, 0.9333333333);
   border-radius: 2rem;
+  min-height: fit-content;
   margin: 8px;
   padding: 8px 128px;
+}
+
+.cap-empty {
+  color: rgba(71, 68, 72, 0.9333333333);
+  margin: 2rem;
 }
 
 /*

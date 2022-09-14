@@ -4,6 +4,7 @@ import GameComponent from './Components/Deck';
 import FlipperRoll from './Components/FlipperRoll';
 import Timer from './Components/Timer';
 import PageCap from './Components/PageCaps';
+import Instructions from './Components/Instructions';
 
 function App() {
   const [gameOver, setGameOver] = useState(true);
@@ -29,11 +30,12 @@ function App() {
   return (
     <div className="App">
       <PageCap content={'Deck Market'}/>
-            <FlipperRoll progress={progress}/>
-            <div className='controls'>
-              <GameComponent progress={progress} updateProgress={addProgressClamped} resetProgress={resetProgress} gameOver={gameOver} updateGameOver={setGameOver} updateDisplayTime={setDisplayTimer} />
-              <Timer time={displayTime} gameOver={gameOver}/>
-            </div>
+      <Instructions />
+      <div className='controls'>
+        <FlipperRoll progress={progress}/>
+        <GameComponent progress={progress} updateProgress={addProgressClamped} resetProgress={resetProgress} gameOver={gameOver} updateGameOver={setGameOver} updateDisplayTime={setDisplayTimer} />
+        <Timer time={displayTime} gameOver={gameOver}/>
+      </div>
       <PageCap />
     </div>
   );

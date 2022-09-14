@@ -160,11 +160,11 @@ export default function Deck(props) {
   return (
     <div className='deck-container'>
       <div className='proposal'>
-        <button className='card'>
+        <div className='card'>
           <h1>+${getCurrentWager()/1000}k</h1>
           <h1>{getCurrentCard()}%</h1>
           <h1>-${getCurrentWager()/1000}k</h1>
-        </button>
+        </div>
         <p className='loss-penalty'>
           or -${lossPenalty/1000}k
         </p>
