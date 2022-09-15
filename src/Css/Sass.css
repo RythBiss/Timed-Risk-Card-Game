@@ -79,10 +79,21 @@
     margin-top: 14px;
   }
 }
-.loss-penalty, .card {
-  min-width: 400px;
+@media only screen and (max-width: 576px) {
+  .flip-container, .flipper {
+    width: 25px;
+    height: 68.75px;
+  }
+  .flip-front, .flip-back, .last-flip {
+    font-size: 1.3rem;
+  }
+  .flip-display {
+    font-size: 2rem;
+  }
+  .flip-display > .comma {
+    margin-top: 14px;
+  }
 }
-
 .deck-container {
   display: flex;
   flex-direction: row;
@@ -97,12 +108,14 @@
   background-image: linear-gradient(-75deg, #FF4242 49.7%, #2c2a2c 50%, #2DD881 50.3%);
   height: 25vh;
   min-height: 200px;
+  width: 80%;
   background-color: rgba(71, 68, 72, 0.9333333333);
   margin: 16px;
   padding: 1rem;
 }
 .card > h1 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+  margin: 8px;
   text-shadow: 0px 0px 5px black;
 }
 
@@ -122,6 +135,7 @@
 }
 
 .loss-penalty {
+  width: 50%;
   display: flex;
   justify-content: center;
   background-color: #FF4242;
@@ -182,6 +196,10 @@ button > h1 {
     width: 75px;
     height: 75px;
   }
+  .timer {
+    top: -60px;
+    left: -20px;
+  }
 }
 * {
   font-family: "Space Mono", monospace;
@@ -209,7 +227,9 @@ body {
   margin: 32px;
 }
 .instruct > p {
-  width: 50%;
+  width: 95%;
+  min-width: 300px;
+  max-width: 700px;
 }
 
 .controls {
@@ -242,6 +262,14 @@ body {
   margin: 2rem;
 }
 
+@media only screen and (max-width: 576px) {
+  .controls {
+    margin: 64px 0 64px 0;
+  }
+  .cap-text {
+    padding: 8px 32px;
+  }
+}
 /*
 command to watch Sass files:
 cd src

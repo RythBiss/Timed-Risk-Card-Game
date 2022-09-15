@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSpring, a } from 'react-spring';
 
 export default function Deck(props) {
 
@@ -12,6 +13,14 @@ export default function Deck(props) {
   
 
   const timerRef = useRef(null);
+
+  const cardColor = useSpring({
+    backgroundImage: `${props.gameOver === true ?  'linear-gradient(-75deg, #474448 49.7%, #2c2a2c 50%, #474448 50.3%)' : 'linear-gradient(-75deg, #FF4242 49.7%, #2c2a2c 50%, #2DD881 50.3%)'}`
+  })
+
+  const penaltyColor = useSpring({
+    backgroundColor: `${props.gameOver === true ? '#474448' : '#FF4242' }`
+  })
 
   //increment position in deck by 1. If the last card is reached, shuffle and reset position to 0.
   const draw = () => {
@@ -160,14 +169,24 @@ export default function Deck(props) {
   return (
     <div className='deck-container'>
       <div className='proposal'>
-        <div className='card'>
-          <h1>+${getCurrentWager()/1000}k</h1>
-          <h1>{getCurrentCard()}%</h1>
-          <h1>-${getCurrentWager()/1000}k</h1>
-        </div>
-        <p className='loss-penalty'>
+        <a.div className='card' style={cardColor}>
+          {props.gameOver === true ? 
+          <>
+            <h1>$000k</h1>
+            <h1>00%</h1>
+            <h1>-$000k</h1>
+          </>
+          :
+          <>
+            <h1>+${getCurrentWager()/1000}k</h1>
+            <h1>{getCurrentCard()}%</h1>
+            <h1>-${getCurrentWager()/1000}k</h1>
+          </>
+          }
+        </a.div>
+        <a.p className='loss-penalty' style={penaltyColor}>
           or -${lossPenalty/1000}k
-        </p>
+        </a.p>
       </div>
       {
       props.gameOver ? 

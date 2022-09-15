@@ -8,7 +8,7 @@ import Instructions from './Components/Instructions';
 
 function App() {
   const [gameOver, setGameOver] = useState(true);
-  const [progress, setProgress] = useState(20000);
+  const [progress, setProgress] = useState(50000);
   const [displayTime, setDisplayTimer] = useState(0);
 
   //clamps the progress value between 0 and 100
@@ -18,7 +18,7 @@ function App() {
   }
 
   const resetProgress = () => {
-    setProgress(20000);
+    setProgress(50000);
   }
 
   //sets gameOver to true if the progress bar hits either threshold

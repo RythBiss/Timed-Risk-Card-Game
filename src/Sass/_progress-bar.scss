@@ -104,3 +104,23 @@
         }
     }
 }
+
+@media only screen and (max-width: 576px){
+    
+    %flip-dimensions{
+        $size: 25px;
+        width: $size;
+        height: $size * 2.75;
+    }
+
+    %inner-card{
+        font-size: 1.3rem;
+    }
+
+    .flip-display{
+        font-size: 2rem;
+        > .comma{
+            margin-top: 14px;
+        }
+    }
+}
